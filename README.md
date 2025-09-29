@@ -1,16 +1,4 @@
 # PPW Project
 
-Struktur Folder:
-
-📂 Pertemuan1  
- └── Modul1_2311104066_Faishal_Arif_Setiawan.pdf  
-
-📂 Praktikum  
- └── main.php  
-
-📂 Latihan  
- ├── latihan1.php  
- ├── latihan2.php  
- └── latihan3.php  
 
 
