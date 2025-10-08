@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaviria Shop - E-Commerce</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f6f8;
+        }
+        header {
+            background-color: #2596be;
+            text-align: center;
+            padding: 15px 0;
+            font-weight: bold;
+        }
+        header h1 {
+            margin: 0;
+            color: white;
+        }
+        header p {
+            margin: 0;
+            color: white;
+            font-style: italic;
+        }
+        nav {
+            background-color: #25a5be;
+            height: 40px;
+            padding: 10px 0;
+            text-align: right;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #f9f7f7;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            height: 600px;
+            display: flex;
+            justify-content: space-around;
+            align-items: stretch;
+            margin: 40px auto 80px;
+            width: 90%;
+            max-width: 1200px;
+            gap: 20px;
+        }
+
+        .box {
+            background-color: #10a2f6;
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 30%;
+            text-align: center;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 18px rgba(0,0,0,0.3);
+        }
+
+        footer {
+            height: 50px;
+            background-color: #2587be;
+            text-align: center;
+            padding: 15px 0;
+            color: white;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gaviria Shop</h1>
+        <p>Kita Sediakan Bahan Kalcermu</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="profile.html">Profile</a>
+    </nav>
+
+    <div class="container">
+        <div class="box">
+            
+            <h2>Produk Populer</h2>
+            <p>Temukan produk e-commerce paling banyak diminati, dari furnitur modern hingga perlengkapan rumah tangga.</p>
+        </div>
+        <div class="box">
+            <h2>Promo & Diskon</h2>
+            <p>Dapatkan penawaran spesial setiap minggu! Nikmati potongan harga hingga 50% untuk produk pilihan.</p>
+        </div>
+        <div class="box">
+            <h2>Testimoni Pelanggan</h2>
+            <p>"Produk cepat sampai dan kualitas bagus! Terima kasih Gaviria Shop!" - <em>Pelanggan Setia</em></p>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 Gaviria Shop | E-Commerce Platform
+    </footer>
+</body>
+</html>
