@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Tugas 1 - Total Harga Pembelian</title>
+</head>
+<body>
+  <h2>Program Total Harga Pembelian</h2>
+  <script>
+    const barang = [
+      { nama: "Susu UHT", harga: 42000, jumlah: 10 },
+      { nama: "Roti Tawar", harga: 30000, jumlah: 3 },
+      { nama: "Mie Instan", harga: 20000, jumlah: 5 },
+      { nama: "Sosis", harga: 51000, jumlah: 7 }
+    ];
+
+    let total = 0;
+    document.write("<table border='1' cellpadding='5'><tr><th>Nama Barang</th><th>Harga Satuan</th><th>Jumlah</th><th>Subtotal</th></tr>");
+
+    barang.forEach(item => {
+      const subtotal = item.harga * item.jumlah;
+      total += subtotal;
+      document.write(`<tr>
+        <td>${item.nama}</td>
+        <td>Rp ${item.harga.toLocaleString()}</td>
+        <td>${item.jumlah}</td>
+        <td>Rp ${subtotal.toLocaleString()}</td>
+      </tr>`);
+    });
+
+    document.write(`</table><h3>Total Pembelian: Rp ${total.toLocaleString()}</h3>`);
+  </script>
+</body>
+</html>
