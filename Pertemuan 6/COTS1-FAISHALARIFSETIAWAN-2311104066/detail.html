@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Produk - LOW KEY</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #e1e3e6;
+      padding-top: 70px;
+    }
+    .carousel img {
+      height: 380px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .product-desc {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    footer {
+      background-color: #212529;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-info shadow">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">LOW KEY</a>
+        <div class="ms-auto">
+          <a href="index.html" class="text-white me-3 text-decoration-none">Beranda</a>
+          <a href="detail.html" class="text-white me-3 text-decoration-none">Produk</a>
+          <a href="login.html" class="text-white text-decoration-none">Login</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container mt-4">
+    <a href="index.html" class="btn btn-secondary mb-3">⬅ Kembali</a>
+  </div>
+
+  <div id="productContainer" class="container text-center my-5"></div>
+
+
+  <footer>
+    LOW KEY Fashion © 2025 — by Faishal Arif (NIM XXXXXXX)
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    const products = [
+      {
+        id: 1,
+        nama: "T-shirt Reguler",
+        harga: "Rp150.000",
+        deskripsi: `
+          Kaos polos premium berbahan <strong>cotton combed 30s</strong> yang lembut, adem, dan menyerap keringat.
+          Desain klasik yang cocok untuk segala gaya dan aktivitas santai.
+          Tersedia berbagai ukuran (S–XL) dan warna netral (hitam, putih, abu, navy).
+        `,
+        spesifikasi: [
+          "Bahan: Cotton Combed 30s",
+          "Model: Regular Fit",
+          "Ukuran: S, M, L, XL",
+          "Perawatan: Cuci lembut, jangan disetrika langsung pada sablon"
+        ],
+        gambar: ["T-shirt.jpg", "Kemeja Lengan Pendek.jpg"]
+      },
+      {
+        id: 2,
+        nama: "Kemeja Oversize",
+        harga: "Rp320.000",
+        deskripsi: `
+          Kemeja bergaya <strong>oversized streetwear</strong> dengan bahan katun lembut dan adem.
+          Memberikan tampilan kasual namun tetap stylish, cocok untuk nongkrong atau kuliah.
+        `,
+        spesifikasi: [
+          "Bahan: Katun premium",
+          "Model: Oversized Fit",
+          "Warna: Putih, Hitam, Cream",
+          "Ukuran: M, L, XL"
+        ],
+        gambar: ["Kemeja Lengan Pendek.jpg"]
+      },
+      {
+        id: 3,
+        nama: "Levis Straight Jeans",
+        harga: "Rp550.000",
+        deskripsi: `
+          Celana jeans pria model <strong>straight fit</strong> yang nyaman digunakan untuk kegiatan sehari-hari.
+          Bahan denim elastis dan tahan lama, mudah dipadupadankan dengan berbagai atasan.
+        `,
+        spesifikasi: [
+          "Bahan: Denim Stretch",
+          "Model: Straight Fit",
+          "Warna: Biru Tua, Hitam",
+          "Ukuran: 28–34"
+        ],
+        gambar: ["Men's Extreme Motion Relaxed Straight Jeans.jpg"]
+      },
+      {
+        id: 4,
+        nama: "Cotton Jacket",
+        harga: "Rp2.000.000",
+        deskripsi: `
+          Jaket berbahan <strong>cotton twill premium</strong> yang ringan namun tetap hangat.
+          Didesain dengan tampilan kasual elegan, cocok dipakai untuk cuaca dingin maupun semi-formal.
+        `,
+        spesifikasi: [
+          "Bahan: Cotton Twill",
+          "Lapisan Dalam: Polyester halus",
+          "Model: Casual Jacket",
+          "Ukuran: M, L, XL"
+        ],
+        gambar: ["cotton cabban jacket.jpg"]
+      },
+      {
+        id: 5,
+        nama: "Vintage Boxy Shirt",
+        harga: "Rp270.000",
+        deskripsi: `
+          Kemeja bergaya <strong>vintage boxy</strong> yang sedang tren.
+          Potongan longgar dengan bahan linen lembut, memberikan kesan santai dan klasik.
+        `,
+        spesifikasi: [
+          "Bahan: Linen halus",
+          "Model: Boxy Fit",
+          "Warna: Coklat Muda, Abu, Krem",
+          "Ukuran: M, L, XL"
+        ],
+        gambar: ["Vintage boxy shirt.jpg"]
+      }
+    ];
+
+    
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get("id"));
+    const produk = products.find(p => p.id === id) || products[0];
+
+    const carouselSlides = produk.gambar.map((img, i) => `
+      <div class="carousel-item ${i === 0 ? "active" : ""}">
+        <img src="images/${img}" class="d-block w-100" alt="${produk.nama}">
+      </div>
+    `).join("");
+
+   
+    document.getElementById("productContainer").innerHTML = `
+      <div id="carouselProduk" class="carousel slide mb-4" data-bs-ride="carousel">
+        <div class="carousel-inner shadow">${carouselSlides}</div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselProduk" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselProduk" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+        </button>
+      </div>
+
+      <div class="product-desc">
+        <h3 class="fw-bold mb-2">${produk.nama}</h3>
+        <h5 class="text-success mb-3">${produk.harga}</h5>
+        <p>${produk.deskripsi}</p>
+        <ul class="list-unstyled text-start d-inline-block mt-3">
+          ${produk.spesifikasi.map(s => `<li>✔️ ${s}</li>`).join("")}
+        </ul>
+        <button class="btn btn-primary px-4 mt-4" id="addCartBtn">Tambah ke Keranjang 🛒</button>
+      </div>
+    `;
+
+ 
+    $(document).on("click", "#addCartBtn", function(){
+      alert("Produk berhasil ditambahkan ke keranjang!");
+    });
+  </script>
+</body>
+</html>
